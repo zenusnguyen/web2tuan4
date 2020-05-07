@@ -1,0 +1,27 @@
+<%- include('header.ejs') -%>
+<link rel="stylesheet" href="css/login.css">
+<div class="container" style="max-width: 60%;">
+<form class="modal-content animate" action="/login" method="post">
+  <div class="imgcontainer" >
+
+    <img
+      src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.0-9/p960x960/93372733_558101021780214_6637228818975162368_o.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=_hB-5lFVX0sAX9iQitJ&_nc_ht=scontent.fsgn2-1.fna&_nc_tp=6&oh=d25cb2ee1b8182531d990d06abdc38b0&oe=5ED9930D"
+      alt="Avatar" class="avatar" />
+  </div>
+
+  <div class="container">
+    <label for="email"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="email" required />
+
+    <label for="pass"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="pass" required />
+
+    <button type="submit">Login</button>
+    
+  </div>
+</div>
+
+</form>
+
+
+<%- include('footer.ejs') -%>
