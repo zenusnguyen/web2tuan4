@@ -9,6 +9,17 @@ function getTodo(req, res, next) {
   }
   res.redirect("/");
 }
+
+function getCompiled(req, res, next) {
+  if (req.currentUser) {
+    return res.render("todolist", {
+      listTitle: "Work List",
+      newListItems: todoList.getComplete(),
+    });
+  }
+  res.redirect("compiled");
+}
+
 function postTodo(req, res, next) {
   const item = {
     id: todoList.getLenght(),
@@ -23,12 +34,19 @@ function postTodo(req, res, next) {
 function deleteTodo(req, res, next) {
   const id = req.body.checkbox;
 
+  const todo = todoList.findById(id);
+
   todoList.makeDone(id);
-  res.redirect("todolist");
+  if (todo.isDone) {
+    return res.redirect("todolist");
+  } else {
+    return res.redirect("compiled");
+  }
 }
 
 module.exports = {
   getTodo,
   postTodo,
   deleteTodo,
+  getCompiled,
 };
